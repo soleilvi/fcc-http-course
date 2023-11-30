@@ -1,5 +1,5 @@
 function getDomainNameFromURL(url) {
-  // ?
+  return new URL(url).hostname 
 }
 
 // don't touch below this line

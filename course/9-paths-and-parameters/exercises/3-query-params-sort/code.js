@@ -1,5 +1,5 @@
 async function getUsers(url, apiKey) {
-  const fullURL = `${url}`
+  const fullURL = `${url}?sort=level`
   const response = await fetch(fullURL, {
     method: 'GET',
     mode: 'cors',

@@ -1,4 +1,4 @@
-const bootdevAPIDomain = 'boot.dev'
+const bootdevAPIDomain = 'api.boot.dev'
 
 // don't touch below this line
 const apiKey = generateKey()
@@ -28,7 +28,7 @@ function generateKey() {
 }
 
 function logItems(items) {
-  for (item of items) {
+  for (const item of items) {
     console.log(item.name)
   } 
 }

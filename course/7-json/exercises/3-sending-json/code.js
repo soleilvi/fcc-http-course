@@ -4,7 +4,7 @@ async function updateLocationById(id, locationObj) {
     method: 'PUT',
     mode: 'cors',
     headers: getHeaders(),
-    body: locationObj
+    body: JSON.stringify(locationObj)
   })
   return response.json()
 }

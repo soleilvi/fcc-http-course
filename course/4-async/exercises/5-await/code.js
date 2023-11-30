@@ -1,4 +1,4 @@
-
+const message = await applyDamage(25, 50)
 
 // Don't touch below this line
 

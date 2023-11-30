@@ -1,7 +1,7 @@
 const apiKey = generateKey()
 const itemURL = 'https://api.boot.dev/v1/courses_rest_api/learn-http/items'
 
-const items = await getData()
+const items = await getData(itemURL)
 
 logItems(items)
 

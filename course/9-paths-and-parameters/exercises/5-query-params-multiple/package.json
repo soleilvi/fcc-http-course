@@ -1,0 +1,8 @@
+{
+  "name": "code",
+  "version": "1.0.0",
+  "description": "package made so that code.js could run",
+  "type": "module",
+  "author": "Soleil Vivero Rivera",
+  "license": "UNLICENSED"
+}

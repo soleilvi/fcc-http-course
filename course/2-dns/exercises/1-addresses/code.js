@@ -5,8 +5,8 @@ async function fetchIPAddress(domain) {
     }
   })
   const respObject = await resp.json()
-
-  console.log(respObject)
+  
+  return respObject.Answer[0].data  // You generally want to check if this is address is actually valid, though
 }
 
 // don't touch below this line

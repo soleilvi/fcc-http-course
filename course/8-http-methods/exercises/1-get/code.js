@@ -1,5 +1,13 @@
 async function getUsers(url, apiKey) {
-  // ?
+  const users = await fetch(url, {
+    method: 'GET',
+    mode: 'cors',
+    headers: {
+      'X-API-Key': apiKey
+    }
+  })
+
+  return users.json()
 }
 
 // Don't touch below this line

@@ -1,0 +1,24 @@
+JSON:
+- JavaScript Object Notation
+- For easily getting raw data from a URL (server)
+- Essentially a JavaScript object in text form
+- Formatted in name/value pairs
+
+URLs:
+- You can extract the domain name from a URL using URL(urlStr).hostname
+- The URL() API in general is what you would usually use to handle URLs
+
+Asynchronous functions:
+- "async" keyword: equivalent to returning a new Promise object
+- "await" keyword: waits for a Promise to be either resolved or rejected
+- Run simultaneous to other processes in your program
+- Commonly used to execute I/O functions without interfering with the frontend
+  - I/O examples:
+    - HTTP requests
+    - Reading files from hard drive
+    - Interacting with Bluetooth devices
+  - I/O timings:
+    - RAM (ex. creating and fetching variables): nanoseconds, use synchronous
+    - Disk (ex. fetching files from computer): 1 millisecond or less, either 
+      sync or async
+    - Network (ex. HTTP requests): 100 - 2000 milliseconds, use asynchronous 

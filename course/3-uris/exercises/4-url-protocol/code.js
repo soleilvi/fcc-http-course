@@ -1,5 +1,5 @@
 function getMailtoLinkForEmail(email) {
-    // ?
+    return "mailto:" + email
 }
 
 // don't touch below this line

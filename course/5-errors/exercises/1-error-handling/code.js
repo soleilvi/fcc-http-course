@@ -1,6 +1,11 @@
-printCharacterStats(4)
-printCharacterStats('ten')
-printCharacterStats(10)
+try {
+  printCharacterStats(4)
+  printCharacterStats('ten')
+  printCharacterStats(10)
+} catch(err) {
+  console.log(`Error produced: ${err}`)
+}
+
 
 // don't touch below this line
 

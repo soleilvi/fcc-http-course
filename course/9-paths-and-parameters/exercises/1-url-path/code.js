@@ -1,5 +1,5 @@
 async function getResources(path) {
-  const fullURL = `https://api.boot.dev`
+  const fullURL = `https://api.boot.dev${path}`
 
   const response = await fetch(fullURL, {
     method: 'GET',

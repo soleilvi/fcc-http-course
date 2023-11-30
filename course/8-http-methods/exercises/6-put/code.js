@@ -1,11 +1,29 @@
 async function updateUser(baseURL, id, data, apiKey) {
   const fullURL = `${baseURL}/${id}`
-  // ?
+  const response = await fetch(fullURL, {
+    method: "PUT",
+    mode: "cors",
+    headers: {
+      "X-API-Key": apiKey,
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
+  })
+
+  return response.json()
 }
 
 async function getUserById(baseURL, id, apiKey) {
   const fullURL = `${baseURL}/${id}`
-  // ?
+  const response = await fetch(fullURL, {
+    method: "GET",
+    mode: "cors",
+    headers: {
+      "X-API-Key": apiKey
+    },
+  })
+
+  return response.json()
 }
 
 // don't touch below this line

@@ -2,7 +2,7 @@ const apiKey = generateKey()
 const url = getURL()
 const settings = getSettings()
 
-const response = fetch(url, settings)
+const response = await fetch(url, settings)
 const responseData = await response.json()
 
 logItems(responseData)
@@ -35,7 +35,7 @@ function generateKey() {
 }
 
 function logItems(items) {
-  for (item of items) {
+  for (const item of items) {
     console.log(item.name)
   } 
 }

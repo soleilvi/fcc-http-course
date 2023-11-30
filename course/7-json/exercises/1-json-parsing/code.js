@@ -8,7 +8,8 @@ async function getLocations() {
       'Content-Type': 'application/json'
     }
   })
-  // ?
+  
+  return await response.json()
 }
 
 // Don't touch below this line

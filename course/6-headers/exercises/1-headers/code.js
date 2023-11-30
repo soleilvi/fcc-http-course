@@ -1,5 +1,5 @@
 function logContentType(resp) {
-  // ?
+  console.log(resp.headers.get("Content-Type"))
 }
 
 // don't touch below this line

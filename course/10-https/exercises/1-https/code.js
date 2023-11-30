@@ -1,4 +1,4 @@
-const url = 'http://api.boot.dev/v1/courses_rest_api/learn-http/users'
+const url = 'https://api.boot.dev/v1/courses_rest_api/learn-http/users'
 
 async function getUserById(url, id) {
   const path = `${url}/${id}`

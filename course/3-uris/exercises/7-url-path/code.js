@@ -1,4 +1,4 @@
-const url = 'https://api.boot.dev/v1/courses_rest_api/learn-http/users'
+const url = 'https://api.boot.dev/v1/courses_rest_api/learn-http/locations'
 
 // don't touch below this line
 const apiKey = generateKey()
