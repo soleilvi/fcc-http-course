@@ -1,7 +1,24 @@
 const {JSDOM} = require("jsdom");
 
-async function crawlPage(currentURL)
+async function crawlPage(baseURL, currentURL, pages)
 {
+    const baseURLObj = new URL(baseURL);
+    const currentURLObj = new URL(currentURL);
+    if(baseURLObj.hostname !== currentURLObj.hostname)
+    {
+        // Ensures that the crawler stays inside the scope of the domain passed into the command line
+        return pages;
+    }
+
+    const normalizedCurrentURL = normalizeURL(currentURL);
+    if(pages[normalizedCurrentURL] > 0)
+    {
+        // Update the amount of times we have seen this page (how many tiems it is linked in the site)
+        pages[normalizedCurrentURL]++;
+        return pages;
+    }
+    pages[normalizedCurrentURL] = 1;  // Map the URL into pages if we haven't seen it before
+
     console.log(`actively crawling ${currentURL}`);
 
     try 
@@ -10,7 +27,7 @@ async function crawlPage(currentURL)
         if(resp.status > 399) 
         {
             console.log(`Error in fetch with status code: ${resp.status} on page: ${currentURL}`);
-            return;
+            return pages;
         }
 
         const contentType = resp.headers.get("content-type");
@@ -18,15 +35,24 @@ async function crawlPage(currentURL)
         {
             // URL does not have valid HTML
             console.log(`Non-HTML response, content type: ${contentType} on page: ${currentURL}`);
-            return;
+            return pages;
         }
         
-        console.log(await resp.text());  // no .json() because we're expecting HTML
+        const htmlBody = await resp.text();  // No .json() because we're expecting HTML
+        const nextURLs = getURLsFromHTML(htmlBody, baseURL);  // Get the URLs linked in this page
+        
+        for(const nextURL of nextURLs)
+        {
+            // Recursively go through all the pages in this website
+            pages = await crawlPage(baseURL, nextURL, pages);
+        }
     }
     catch(err)
     {
         console.log(`Error in fetch: ${err.message}, on page ${currentURL}`);
     }
+
+    return pages;
 }
 
 function getURLsFromHTML(htmlBody, baseURL)
