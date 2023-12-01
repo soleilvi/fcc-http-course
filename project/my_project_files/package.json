@@ -1,0 +1,19 @@
+{
+  "name": "my_project_files",
+  "version": "1.0.0",
+  "description": "Project for Lane Wagner's Learn HTTP course",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/soleilvi/fcc-http-course"
+  },
+  "author": "Soleil Vivero Rivera",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
