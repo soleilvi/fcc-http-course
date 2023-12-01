@@ -1,4 +1,33 @@
-const { JSDOM } = require("jsdom");
+const {JSDOM} = require("jsdom");
+
+async function crawlPage(currentURL)
+{
+    console.log(`actively crawling ${currentURL}`);
+
+    try 
+    {
+        const resp = await fetch(currentURL);  // Makes a "GET" request by default, no need to pass in that command
+        if(resp.status > 399) 
+        {
+            console.log(`Error in fetch with status code: ${resp.status} on page: ${currentURL}`);
+            return;
+        }
+
+        const contentType = resp.headers.get("content-type");
+        if(!contentType.includes("text/html"))
+        {
+            // URL does not have valid HTML
+            console.log(`Non-HTML response, content type: ${contentType} on page: ${currentURL}`);
+            return;
+        }
+        
+        console.log(await resp.text());  // no .json() because we're expecting HTML
+    }
+    catch(err)
+    {
+        console.log(`Error in fetch: ${err.message}, on page ${currentURL}`);
+    }
+}
 
 function getURLsFromHTML(htmlBody, baseURL)
 {
@@ -54,9 +83,10 @@ function normalizeURL(urlString)
     return hostPath;
 }
 
-// Makes the normalizeURL function available to other JS files that want to import it
+// Makes these functions available to other JS files that want to import them
 module.exports =
 {
     normalizeURL,
-    getURLsFromHTML
+    getURLsFromHTML,
+    crawlPage
 }
