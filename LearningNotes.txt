@@ -8,7 +8,7 @@ URLs:
 - You can extract the domain name from a URL using URL(urlStr).hostname
 - The URL() API in general is what you would usually use to handle URLs
 
-Asynchronous functions:
+Asynchronous Functions:
 - "async" keyword: equivalent to returning a new Promise object
 - "await" keyword: waits for a Promise to be either resolved or rejected
 - Run simultaneous to other processes in your program
@@ -22,3 +22,13 @@ Asynchronous functions:
     - Disk (ex. fetching files from computer): 1 millisecond or less, either 
       sync or async
     - Network (ex. HTTP requests): 100 - 2000 milliseconds, use asynchronous 
+
+Jest Testing Framework:
+- Useful for test-driven development in JavaScript
+- use "npm install --save-dev jest" to add it to your project
+- Runs files that end in ".test.js"
+- It is a "dev dependency"
+  - Meaning it is meant to only be used by the developer and can be ignored wh-
+    en committing to GitHub (and releasing it?)
+  - Regular dependencies are used by the application, and should be released
+    along with the app
